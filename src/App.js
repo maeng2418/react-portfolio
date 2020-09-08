@@ -9,6 +9,7 @@ import Resume from './Components/Resume';
 import Contact from './Components/Contact';
 import Testimonials from './Components/Testimonials';
 import Portfolio from './Components/Portfolio';
+import resumeData from './resumeData.json';
 
 class App extends Component {
 
@@ -22,18 +23,7 @@ class App extends Component {
   }
 
   getResumeData(){
-    $.ajax({
-      url:'/resumeData.json',
-      dataType:'json',
-      cache: false,
-      success: function(data){
-        this.setState({resumeData: data});
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.log(err);
-        alert(err);
-      }
-    });
+    this.setState({resumeData: resumeData});
   }
 
   componentDidMount(){
